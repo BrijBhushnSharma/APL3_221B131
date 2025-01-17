@@ -1,0 +1,40 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+class Juet{
+    String name;
+    int age;
+    public void setAge(int age){
+        this.age =age;
+        
+    }
+        public void setName(String name){
+            this.name =name;
+        }
+        public int getAge(){
+            return this.age;
+        }
+        String getName(){
+            return this.name;
+        }
+    }
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Juet j = new Juet();
+	    j.setAge(23);
+	    j.setName("Brij Bhushan Sharma");
+	    System.out.println("Name = " + j.getName());
+	    System.out.println("Age = " + j.getAge());
+	    
+		System.out.println("Hello World");
+		int x = Integer.parseInt(args[0]);
+		for(int i=1;i<=10;i++)
+		System.out.println(x+ "x"+ i +"="+ x*i);
+	}
+}
