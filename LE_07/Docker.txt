@@ -1,0 +1,34 @@
+Docker -> image of the application / Shift operating system and environment
+Virtual Machine -> Given OS where we can run other OS
+
+DEMO-
+
+Go to Docker Desktop -> Images, Open CMD
+write the commands-
+
+>>docker pull hello-world
+>>docker run hello-world
+>>docker run -it ubuntu  // runs a container if it doesn't exist then it automatically first run the push command and then run.
+>>exit
+>>docker stop <id>
+
+-it -> iterative mode with ubuntu
+
+Push Docker Images -> Docker hub -> pull
+
+DOCKER Network-
+
+let 2 container talk without hassle.[mongodb, mongo-express]
+>>docker network ls
+>>docker network create mongo-network
+>>docker network ls
+>>docker run -d -p 27017:27017 --name mongo --network mongo-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO INITDB_ROOT_PASSWORD=admin mongo  
+>>docker network inspect mongo-network //To see which container are connected to mongo network.
+
+-d = detached mode // means if you close cmd then also your container runs.
+-p = port27017(localhost port of our system):27017(default port for mongodb)
+--name = Docker gives default name to container but through these command we can give the name to container.
+-e = environment variable.
+>>docker run -d -p 8081:8081 --name mongo-express --network mongo-network -e ME_CONFIG_MONGODB_INITDB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -e ME_CONFIG_MONGODB_URL="mongodb://admin:admn@mongo:27017" mongo -express
+
+mongo admin is an mongo interface to connect to mongo-express
